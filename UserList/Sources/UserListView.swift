@@ -4,6 +4,7 @@ struct UserListView: View {
     // TODO: - Those properties should be viewModel's OutPuts
     @State private var users: [User] = []
     @State private var isLoading = false
+    // Toolbar viewModel
     @State private var isGridView = false
 
     // TODO: - The property should be declared in the viewModel
@@ -13,6 +14,7 @@ struct UserListView: View {
         NavigationView {
             if !isGridView {
                 List(users) { user in
+                    // TODO: - Separate the ui for the list and the listRow
                     NavigationLink(destination: UserDetailView(user: user)) {
                         HStack {
                             AsyncImage(url: URL(string: user.picture.thumbnail)) { image in
@@ -35,6 +37,7 @@ struct UserListView: View {
                             }
                         }
                     }
+                    // TODO: - Move the onAppear in a viewModel
                     .onAppear {
                         if self.shouldLoadMoreData(currentItem: user) {
                             self.fetchUsers()
@@ -42,6 +45,7 @@ struct UserListView: View {
                     }
                 }
                 .navigationTitle("Users")
+                // TODO: - Move the toolbar in a dedicated view file and with 2 toolbar view Item
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Picker(selection: $isGridView, label: Text("Display")) {
@@ -67,6 +71,7 @@ struct UserListView: View {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                         ForEach(users) { user in
+                            // TODO: - Separate the ui for the scroolView and the userVstackView
                             NavigationLink(destination: UserDetailView(user: user)) {
                                 VStack {
                                     AsyncImage(url: URL(string: user.picture.medium)) { image in
@@ -86,6 +91,7 @@ struct UserListView: View {
                                         .multilineTextAlignment(.center)
                                 }
                             }
+                            // TODO: - Move the onAppear in a viewModel
                             .onAppear {
                                 if self.shouldLoadMoreData(currentItem: user) {
                                     self.fetchUsers()
@@ -95,6 +101,7 @@ struct UserListView: View {
                     }
                 }
                 .navigationTitle("Users")
+                // TODO: - Move the toolbar in a dedicated view file and with 2 toolbar view Item
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Picker(selection: $isGridView, label: Text("Display")) {

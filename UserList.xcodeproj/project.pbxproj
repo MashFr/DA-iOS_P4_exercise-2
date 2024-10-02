@@ -18,6 +18,7 @@
 		2FFB64282AC6D255007F2F80 /* UserListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB64272AC6D255007F2F80 /* UserListApp.swift */; };
 		2FFB642A2AC6D255007F2F80 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB64292AC6D255007F2F80 /* UserListView.swift */; };
 		2FFB642C2AC6D256007F2F80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FFB642B2AC6D256007F2F80 /* Assets.xcassets */; };
+		6F366CD42CAD692E00BE5046 /* MVVMrefactoList.md in Resources */ = {isa = PBXBuildFile; fileRef = 6F366CD32CAD692E00BE5046 /* MVVMrefactoList.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		2FFB64292AC6D255007F2F80 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		2FFB642B2AC6D256007F2F80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FFB64342AC6D256007F2F80 /* UserListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F366CD32CAD692E00BE5046 /* MVVMrefactoList.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = MVVMrefactoList.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		2FFB641B2AC6D255007F2F80 = {
 			isa = PBXGroup;
 			children = (
+				6F366CD32CAD692E00BE5046 /* MVVMrefactoList.md */,
 				2F6F65322ACD69290011B439 /* Readme.md */,
 				2FFB64262AC6D255007F2F80 /* UserList */,
 				2FFB64372AC6D256007F2F80 /* UserListTests */,
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F6F65332ACD69290011B439 /* Readme.md in Resources */,
+				6F366CD42CAD692E00BE5046 /* MVVMrefactoList.md in Resources */,
 				2FFB642C2AC6D256007F2F80 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

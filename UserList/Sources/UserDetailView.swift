@@ -5,6 +5,7 @@ struct UserDetailView: View {
     
     var body: some View {
         VStack {
+            // TODO: - move the image in a view UserPicture
             AsyncImage(url: URL(string: user.picture.large)) { image in
                 image
                     .resizable()
