@@ -6,44 +6,74 @@
 //
 import SwiftUI
 
-class UserListViewModel: ObservableObject {
-
-    // Utilité du singleton pattern / explication ???
-    private let repository = UserListRepository()
-
-    // MARK: OUTPUT
-
-    @Published var users: [User] = []
-    @Published var isLoading = false
+class UserListViewModel: ObservableObject, UserListViewModelInput, UserListViewModelOutput {
+    
+    // MARK: Properties
+    private let repository: UserListRepository
+    private var pageSize: Int = 20
+    
+    // MARK: Initialization
+    init(repository: UserListRepository = UserListRepository()) {
+        self.repository = repository
+    }
+    
+    // MARK: - OUTPUT
+    var output: UserListViewModelOutput { get { self } }
+    
+    @Published private(set) var users: [User] = []
+    @Published private(set) var isLoading = false
+    @Published private(set) var errorMessage: String? = nil
+    
+    // Faut il definir une méthode pour changer la valeur de isGridView dans le View Model et ainsi passer par output/input
+    // cf : Voir la vue
+    // De meme pour showAlert quand on utilise le binding avec $
     @Published var isGridView = false
-
+    @Published var showAlert = false
+    
     func shouldLoadMoreData(currentItem item: User) -> Bool {
         guard let lastItem = users.last else { return false }
         return !isLoading && item.id == lastItem.id
     }
+    
+    // MARK: - INPUT
+    // Faut il créer une extention ?
+    var input: UserListViewModelInput { get { self } }
+    
+    @MainActor
+    func fetchUsers() async {
+        self.isLoading = true
 
-    // MARK: INPUT
-
-    func fetchUsers() {
-        isLoading = true
-        Task {
-            do {
-                let users = try await repository.fetchUsers(quantity: 20)
-                DispatchQueue.main.async {
-                    self.users.append(contentsOf: users)
-                    self.isLoading = false
-                }
-            } catch {
-                // TODO: show error in view
-                // isLoadind false
-                // add a published var errorMessage and handle it in the view
-                print("Error fetching users: \(error.localizedDescription)")
-            }
+        do {
+            let users = try await repository.fetchUsers(quantity: pageSize)
+            self.users.append(contentsOf: users)
+        } catch {
+            self.errorMessage = "Error fetching users: \(error.localizedDescription)"
+            self.showAlert = true
+            print("Error fetching users: \(error.localizedDescription)")
         }
+        
+        self.isLoading = false
     }
+    
+    func reloadUsers() async {
+        DispatchQueue.main.async {
+            self.users.removeAll()
+        }
+        
+        await fetchUsers()
+    }
+}
 
-    func reloadUsers() {
-        users.removeAll()
-        fetchUsers()
-    }
+protocol UserListViewModelInput {
+    func fetchUsers() async
+    func reloadUsers() async
+}
+
+protocol UserListViewModelOutput {
+    var users: [User] { get }
+    var isLoading: Bool { get }
+    var isGridView: Bool { get set }
+    var errorMessage: String? { get }
+    
+    func shouldLoadMoreData(currentItem item: User) -> Bool
 }

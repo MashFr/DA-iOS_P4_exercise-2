@@ -11,6 +11,8 @@ struct UserListRepository {
     }
 
     func fetchUsers(quantity: Int) async throws -> [User] {
+
+        // TODO: Url Constructor
         guard let url = URL(string: "https://randomuser.me/api/") else {
             throw URLError(.badURL)
         }
@@ -26,7 +28,7 @@ struct UserListRepository {
         let (data, _) = try await executeDataRequest(request)
 
         let response = try JSONDecoder().decode(UserListResponse.self, from: data)
-        
+
         return response.results.map(User.init)
     }
 }

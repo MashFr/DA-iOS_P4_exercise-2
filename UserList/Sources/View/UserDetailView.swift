@@ -2,7 +2,7 @@ import SwiftUI
 
 struct UserDetailView: View {
     let user: User
-    
+
     var body: some View {
         VStack {
             // TODO: - move the image in a view UserPicture
@@ -17,7 +17,7 @@ struct UserDetailView: View {
                     .frame(width: 200, height: 200)
                     .clipShape(Circle())
             }
-            
+
             VStack(alignment: .leading) {
                 Text("\(user.name.first) \(user.name.last)")
                     .font(.headline)
@@ -25,7 +25,7 @@ struct UserDetailView: View {
                     .font(.subheadline)
             }
             .padding()
-            
+
             Spacer()
         }
         .navigationTitle("\(user.name.first) \(user.name.last)")

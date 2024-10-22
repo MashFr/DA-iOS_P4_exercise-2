@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UserListToolbarView: View {
     @ObservedObject var viewModel: UserListViewModel
-    
+
     var body: some View {
         HStack {
             Picker(selection: $viewModel.isGridView, label: Text("Display")) {
@@ -22,7 +22,9 @@ struct UserListToolbarView: View {
             }
             .pickerStyle(SegmentedPickerStyle())
             Button(action: {
-                viewModel.reloadUsers()
+                Task {
+                    await viewModel.input.reloadUsers()
+                }
             }) {
                 Image(systemName: "arrow.clockwise")
                     .imageScale(.large)
@@ -31,6 +33,6 @@ struct UserListToolbarView: View {
     }
 }
 
-//#Preview {
+// #Preview {
 //    UserListToolbarView()
-//}
+// }
