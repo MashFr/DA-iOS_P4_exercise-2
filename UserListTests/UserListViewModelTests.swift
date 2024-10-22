@@ -1,61 +1,59 @@
+//
+//  UserListViewModelTests.swift
+//  UserListTests
+//
+//  Created by Tony Stark on 17/10/2024.
+//
+
 import XCTest
 @testable import UserList
 
-
-
-
-final class UserListRepositoryTests: XCTestCase {
-    // Happy path test case
-    func testFetchUsersSuccess() async throws {
-        // Given
+final class UserListViewModelTests: XCTestCase {
+    // TODO: Try to mock the network
+    
+    var viewModel: UserListViewModel!
+    
+    override func setUp() {
+        super.setUp()
         let repository = UserListRepository(executeDataRequest: mockExecuteDataRequest)
-        let quantity = 2
-
+        viewModel = UserListViewModel(repository: repository)
+    }
+    
+    override func tearDown() {
+        viewModel = nil
+        super.tearDown()
+    }
+    
+    @MainActor
+    func testGivenUsersListIsEmpty_WhenReloadUsers_ThenUsersListIsNoLongerEmptyAndNoProblemsOccur() async throws {
+        // Given
         // When
-        let users = try await repository.fetchUsers(quantity: quantity)
+        await viewModel.reloadUsers()
 
         // Then
-        XCTAssertEqual(users.count, quantity)
-        XCTAssertEqual(users[0].name.first, "John")
-        XCTAssertEqual(users[0].name.last, "Doe")
-        XCTAssertEqual(users[0].dob.age, 31)
-        XCTAssertEqual(users[0].picture.large, "https://example.com/large.jpg")
-
-        XCTAssertEqual(users[1].name.first, "Jane")
-        XCTAssertEqual(users[1].name.last, "Smith")
-        XCTAssertEqual(users[1].dob.age, 26)
-        XCTAssertEqual(users[1].picture.medium, "https://example.com/medium.jpg")
+        XCTAssertFalse(viewModel.users.isEmpty)
+        // And
+        XCTAssertFalse(viewModel.isLoading)
+        XCTAssertNil(viewModel.errorMessage)
+        XCTAssertFalse(viewModel.showAlert)
     }
 
-    // Unhappy path test case: Invalid JSON response
-    func testFetchUsersInvalidJSONResponse() async throws {
-        // Given
-        let invalidJSONData = "invalid JSON".data(using: .utf8)!
-        let invalidJSONResponse = HTTPURLResponse(
-            url: URL(string: "https://example.com")!,
-            statusCode: 200,
-            httpVersion: nil,
-            headerFields: nil
-        )!
-
-        let mockExecuteDataRequest: (URLRequest) async throws -> (Data, URLResponse) = { _ in
-            return (invalidJSONData, invalidJSONResponse)
-        }
-
-        let repository = UserListRepository(executeDataRequest: mockExecuteDataRequest)
-
-        // When
-        do {
-            _ = try await repository.fetchUsers(quantity: 2)
-            XCTFail("Response should fail")
-        } catch {
-            // Then
-            XCTAssertTrue(error is DecodingError)
-        }
-    }
+//    @MainActor
+//    func testGivenUsersListIsEmpty_WhenReloadUsers_ThenUsersListIsNoLongerEmpty() async throws {
+//        let expectation = XCTestExpectation(description: "fetchUsers asynchronously.")
+//
+//        Task {
+//            await viewModel.reloadUsers()
+//            XCTAssertFalse(viewModel.users.isEmpty)
+//            expectation.fulfill()
+//        }
+//        
+//        await fulfillment(of: [expectation], timeout: 10) 
+//    }
 }
 
-private extension UserListRepositoryTests {
+
+private extension UserListViewModelTests {
     // Define a mock for executeDataRequest that returns predefined data
     func mockExecuteDataRequest(_ request: URLRequest) async throws -> (Data, URLResponse) {
         // Create mock data with a sample JSON response
