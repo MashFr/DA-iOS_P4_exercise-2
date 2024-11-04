@@ -9,16 +9,23 @@
 /* Begin PBXBuildFile section */
 		2F015BA82ACC938F009A098C /* UserListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F015BA72ACC938F009A098C /* UserListRepositoryTests.swift */; };
 		2F6F65332ACD69290011B439 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F65322ACD69290011B439 /* Readme.md */; };
-		2F804AE22ACC976300A46A03 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F804AE12ACC976300A46A03 /* UserDetailView.swift */; };
-		2FEF0C6F2ACB416C004DB87C /* UserListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF0C6E2ACB416C004DB87C /* UserListResponse.swift */; };
-		2FEF0C712ACB45E3004DB87C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF0C702ACB45E3004DB87C /* User.swift */; };
 		2FF9D91B2ACB3CE600F3A6C5 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9D91A2ACB3CE600F3A6C5 /* URLRequest.swift */; };
 		2FF9D91D2ACB3D8800F3A6C5 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9D91C2ACB3D8800F3A6C5 /* HTTPMethod.swift */; };
-		2FF9D91F2ACB3DD400F3A6C5 /* UserListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9D91E2ACB3DD400F3A6C5 /* UserListRepository.swift */; };
 		2FFB64282AC6D255007F2F80 /* UserListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB64272AC6D255007F2F80 /* UserListApp.swift */; };
-		2FFB642A2AC6D255007F2F80 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB64292AC6D255007F2F80 /* UserListView.swift */; };
 		2FFB642C2AC6D256007F2F80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FFB642B2AC6D256007F2F80 /* Assets.xcassets */; };
 		6F366CD42CAD692E00BE5046 /* MVVMrefactoList.md in Resources */ = {isa = PBXBuildFile; fileRef = 6F366CD32CAD692E00BE5046 /* MVVMrefactoList.md */; };
+		6F72623B2CC8FD6600C73709 /* DataRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F72623A2CC8FD6600C73709 /* DataRequestMock.swift */; };
+		6F72623E2CC9001C00C73709 /* UserPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F72623D2CC9001C00C73709 /* UserPictureView.swift */; };
+		6FE40D782CC12B9900AB2E64 /* UserListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE40D762CC12B9900AB2E64 /* UserListResponse.swift */; };
+		6FE40D792CC12B9900AB2E64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE40D742CC12B9900AB2E64 /* User.swift */; };
+		6FE40D7A2CC12B9900AB2E64 /* UserListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE40D752CC12B9900AB2E64 /* UserListRepository.swift */; };
+		6FE40D812CC12BA200AB2E64 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE40D7E2CC12BA200AB2E64 /* UserListView.swift */; };
+		6FE40D822CC12BA200AB2E64 /* UserListToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE40D7D2CC12BA200AB2E64 /* UserListToolbarView.swift */; };
+		6FE40D832CC12BA200AB2E64 /* UserRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE40D7F2CC12BA200AB2E64 /* UserRowView.swift */; };
+		6FE40D842CC12BA200AB2E64 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE40D7B2CC12BA200AB2E64 /* UserDetailView.swift */; };
+		6FE40D852CC12BA200AB2E64 /* UserGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE40D7C2CC12BA200AB2E64 /* UserGridView.swift */; };
+		6FE40D882CC12BA700AB2E64 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE40D862CC12BA700AB2E64 /* UserListViewModel.swift */; };
+		6FE40D8E2CC134EB00AB2E64 /* UserListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE40D8D2CC134EB00AB2E64 /* UserListViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,19 +41,26 @@
 /* Begin PBXFileReference section */
 		2F015BA72ACC938F009A098C /* UserListRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRepositoryTests.swift; sourceTree = "<group>"; };
 		2F6F65322ACD69290011B439 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
-		2F804AE12ACC976300A46A03 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		2FB4823B2ACC98DD0016CBA7 /* UserList.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UserList.xctestplan; sourceTree = "<group>"; };
-		2FEF0C6E2ACB416C004DB87C /* UserListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListResponse.swift; sourceTree = "<group>"; };
-		2FEF0C702ACB45E3004DB87C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2FF9D91A2ACB3CE600F3A6C5 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		2FF9D91C2ACB3D8800F3A6C5 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		2FF9D91E2ACB3DD400F3A6C5 /* UserListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRepository.swift; sourceTree = "<group>"; };
 		2FFB64242AC6D255007F2F80 /* UserList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FFB64272AC6D255007F2F80 /* UserListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListApp.swift; sourceTree = "<group>"; };
-		2FFB64292AC6D255007F2F80 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		2FFB642B2AC6D256007F2F80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FFB64342AC6D256007F2F80 /* UserListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F366CD32CAD692E00BE5046 /* MVVMrefactoList.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = MVVMrefactoList.md; sourceTree = "<group>"; };
+		6F72623A2CC8FD6600C73709 /* DataRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequestMock.swift; sourceTree = "<group>"; };
+		6F72623D2CC9001C00C73709 /* UserPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPictureView.swift; sourceTree = "<group>"; };
+		6FE40D742CC12B9900AB2E64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6FE40D752CC12B9900AB2E64 /* UserListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRepository.swift; sourceTree = "<group>"; };
+		6FE40D762CC12B9900AB2E64 /* UserListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListResponse.swift; sourceTree = "<group>"; };
+		6FE40D7B2CC12BA200AB2E64 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
+		6FE40D7C2CC12BA200AB2E64 /* UserGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGridView.swift; sourceTree = "<group>"; };
+		6FE40D7D2CC12BA200AB2E64 /* UserListToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListToolbarView.swift; sourceTree = "<group>"; };
+		6FE40D7E2CC12BA200AB2E64 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		6FE40D7F2CC12BA200AB2E64 /* UserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRowView.swift; sourceTree = "<group>"; };
+		6FE40D862CC12BA700AB2E64 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		6FE40D8D2CC134EB00AB2E64 /* UserListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,12 +84,10 @@
 		2FF9D9172ACB3C0B00F3A6C5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6FE40D772CC12B9900AB2E64 /* Model */,
+				6FE40D802CC12BA200AB2E64 /* View */,
+				6FE40D872CC12BA700AB2E64 /* ViewModels */,
 				2FFB64272AC6D255007F2F80 /* UserListApp.swift */,
-				2FFB64292AC6D255007F2F80 /* UserListView.swift */,
-				2F804AE12ACC976300A46A03 /* UserDetailView.swift */,
-				2FEF0C702ACB45E3004DB87C /* User.swift */,
-				2FEF0C6E2ACB416C004DB87C /* UserListResponse.swift */,
-				2FF9D91E2ACB3DD400F3A6C5 /* UserListRepository.swift */,
 				2FF9D9192ACB3CD800F3A6C5 /* HTTPClient */,
 			);
 			path = Sources;
@@ -132,8 +144,41 @@
 			children = (
 				2F015BA72ACC938F009A098C /* UserListRepositoryTests.swift */,
 				2FB4823B2ACC98DD0016CBA7 /* UserList.xctestplan */,
+				6FE40D8D2CC134EB00AB2E64 /* UserListViewModelTests.swift */,
+				6F72623A2CC8FD6600C73709 /* DataRequestMock.swift */,
 			);
 			path = UserListTests;
+			sourceTree = "<group>";
+		};
+		6FE40D772CC12B9900AB2E64 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6FE40D742CC12B9900AB2E64 /* User.swift */,
+				6FE40D752CC12B9900AB2E64 /* UserListRepository.swift */,
+				6FE40D762CC12B9900AB2E64 /* UserListResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6FE40D802CC12BA200AB2E64 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F72623D2CC9001C00C73709 /* UserPictureView.swift */,
+				6FE40D7B2CC12BA200AB2E64 /* UserDetailView.swift */,
+				6FE40D7C2CC12BA200AB2E64 /* UserGridView.swift */,
+				6FE40D7D2CC12BA200AB2E64 /* UserListToolbarView.swift */,
+				6FE40D7E2CC12BA200AB2E64 /* UserListView.swift */,
+				6FE40D7F2CC12BA200AB2E64 /* UserRowView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6FE40D872CC12BA700AB2E64 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6FE40D862CC12BA700AB2E64 /* UserListViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,7 +227,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					2FFB64232AC6D255007F2F80 = {
 						CreatedOnToolsVersion = 14.2;
@@ -202,6 +247,9 @@
 				Base,
 			);
 			mainGroup = 2FFB641B2AC6D255007F2F80;
+			packageReferences = (
+				6FE40D892CC130E300AB2E64 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+			);
 			productRefGroup = 2FFB64252AC6D255007F2F80 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -238,13 +286,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FF9D91D2ACB3D8800F3A6C5 /* HTTPMethod.swift in Sources */,
+				6FE40D882CC12BA700AB2E64 /* UserListViewModel.swift in Sources */,
+				6FE40D782CC12B9900AB2E64 /* UserListResponse.swift in Sources */,
+				6FE40D792CC12B9900AB2E64 /* User.swift in Sources */,
+				6FE40D812CC12BA200AB2E64 /* UserListView.swift in Sources */,
+				6FE40D822CC12BA200AB2E64 /* UserListToolbarView.swift in Sources */,
+				6FE40D832CC12BA200AB2E64 /* UserRowView.swift in Sources */,
+				6FE40D842CC12BA200AB2E64 /* UserDetailView.swift in Sources */,
+				6F72623E2CC9001C00C73709 /* UserPictureView.swift in Sources */,
+				6FE40D852CC12BA200AB2E64 /* UserGridView.swift in Sources */,
+				6FE40D7A2CC12B9900AB2E64 /* UserListRepository.swift in Sources */,
 				2FF9D91B2ACB3CE600F3A6C5 /* URLRequest.swift in Sources */,
-				2FFB642A2AC6D255007F2F80 /* UserListView.swift in Sources */,
-				2FEF0C6F2ACB416C004DB87C /* UserListResponse.swift in Sources */,
-				2F804AE22ACC976300A46A03 /* UserDetailView.swift in Sources */,
-				2FF9D91F2ACB3DD400F3A6C5 /* UserListRepository.swift in Sources */,
 				2FFB64282AC6D255007F2F80 /* UserListApp.swift in Sources */,
-				2FEF0C712ACB45E3004DB87C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +306,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F015BA82ACC938F009A098C /* UserListRepositoryTests.swift in Sources */,
+				6F72623B2CC8FD6600C73709 /* DataRequestMock.swift in Sources */,
+				6FE40D8E2CC134EB00AB2E64 /* UserListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +358,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -364,7 +419,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -442,7 +497,6 @@
 		2FFB644C2AC6D256007F2F80 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -461,7 +515,6 @@
 		2FFB644D2AC6D256007F2F80 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -508,6 +561,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6FE40D892CC130E300AB2E64 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.57.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 2FFB641C2AC6D255007F2F80 /* Project object */;
 }

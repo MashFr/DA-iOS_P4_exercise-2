@@ -21,6 +21,12 @@ extension URLRequest {
                 encodeParametersInURL(parameters, components: components)
             case .POST:
                 try encodeParametersInBody(parameters)
+//            case .PUT:
+//                break
+//            case .DELETE:
+//                break
+//            case .PATCH:
+//                break
             }
         }
 
