@@ -8,14 +8,17 @@
 import XCTest
 @testable import UserList
 
+@MainActor
 final class UserListViewModelTests: XCTestCase {
-    // TODO: Try to mock the network
     
     var viewModel: UserListViewModel!
+    let dataRequestMock = DataRequestMock()
+    var repository: UserListRepository!
     
     override func setUp() {
         super.setUp()
-        let repository = UserListRepository(executeDataRequest: mockExecuteDataRequest)
+        dataRequestMock.shouldReturnValidResponse = true
+        repository = UserListRepository(executeDataRequest: dataRequestMock.executeDataRequest)
         viewModel = UserListViewModel(repository: repository)
     }
     
@@ -24,19 +27,113 @@ final class UserListViewModelTests: XCTestCase {
         super.tearDown()
     }
     
-    @MainActor
     func testGivenUsersListIsEmpty_WhenReloadUsers_ThenUsersListIsNoLongerEmptyAndNoProblemsOccur() async throws {
-        // Given
-        // When
-        await viewModel.reloadUsers()
+        let expectation = XCTestExpectation(description: "reloadUsers completes")
+        
+        Task {
+            await viewModel.reloadUsers() // une tâche asynchrone
+            XCTAssertFalse(viewModel.users.isEmpty) // validation une fois la tâche terminée
 
-        // Then
-        XCTAssertFalse(viewModel.users.isEmpty)
-        // And
-        XCTAssertFalse(viewModel.isLoading)
-        XCTAssertNil(viewModel.errorMessage)
-        XCTAssertFalse(viewModel.showAlert)
+            let user0 = dataRequestMock.mockUser1
+            XCTAssertEqual(viewModel.users[0].name.first, user0.name.first)
+            XCTAssertEqual(viewModel.users[0].name.last, user0.name.last)
+            XCTAssertEqual(viewModel.users[0].dob.age, user0.dob.age)
+            XCTAssertEqual(viewModel.users[0].picture.large, user0.picture.large)
+            
+            XCTAssertFalse(viewModel.isLoading)
+            XCTAssertNil(viewModel.errorMessage)
+            XCTAssertFalse(viewModel.showAlert)
+            
+            expectation.fulfill() // Marque l'expectation comme remplie
+        }
+        
+        await fulfillment(of: [expectation], timeout: 10)
     }
+    
+    func testGivenUsersListIsNotEmpty_WhenFetchUsers_ThenUsersListHasNewUsersAndNoProblemsOccur() async throws {
+        let expectation = XCTestExpectation(description: "fetchUsers completes")
+        
+        Task {
+            await viewModel.fetchUsers()
+            
+            XCTAssertFalse(viewModel.users.isEmpty)
+            let user0 = dataRequestMock.mockUser1
+            XCTAssertEqual(viewModel.users[0].name.first, user0.name.first)
+            XCTAssertEqual(viewModel.users[0].name.last, user0.name.last)
+            XCTAssertEqual(viewModel.users[0].dob.age, user0.dob.age)
+            XCTAssertEqual(viewModel.users[0].picture.large, user0.picture.large)
+            
+            XCTAssertFalse(viewModel.isLoading)
+            XCTAssertNil(viewModel.errorMessage)
+            XCTAssertFalse(viewModel.showAlert)
+            
+            expectation.fulfill()
+        }
+        
+        await fulfillment(of: [expectation], timeout: 10)
+    }
+    
+    func testGivenUsersIsEmpty_WhenFetchUsersAndErrorOccurs_ThenUsersListIsEmptyAndErrorMessageOccur() async throws {
+        dataRequestMock.shouldReturnValidResponse = false
+        let expectation = XCTestExpectation(description: "fetchUsers with error completes")
+        
+        Task {
+            await viewModel.fetchUsers()
+            
+            XCTAssertTrue(viewModel.users.isEmpty)
+            XCTAssertFalse(viewModel.isLoading)
+            XCTAssertNotNil(viewModel.errorMessage)
+            XCTAssertTrue(viewModel.showAlert)
+            
+            expectation.fulfill()
+        }
+        
+        await fulfillment(of: [expectation], timeout: 10)
+    }
+    
+    func testGivenUserIsLastOfUserList_WhenShouldLoadMoreData_ThenTrue() async throws {
+        let expectation = XCTestExpectation(description: "fetchUsers for last user completes")
+        
+        Task {
+            await viewModel.fetchUsers()
+            
+            let lastUser = viewModel.users.last!
+            XCTAssertTrue(viewModel.shouldLoadMoreData(currentItem: lastUser))
+            
+            expectation.fulfill()
+        }
+        
+        await fulfillment(of: [expectation], timeout: 10)
+    }
+    
+    func testGivenUserIsNotLastOfUserList_WhenShouldLoadMoreData_ThenFalse() async throws {
+        let expectation = XCTestExpectation(description: "fetchUsers for first user completes")
+        
+        Task {
+            await viewModel.fetchUsers()
+            
+            let firstUser = viewModel.users.first!
+            XCTAssertFalse(viewModel.shouldLoadMoreData(currentItem: firstUser))
+            
+            expectation.fulfill()
+        }
+        
+        await fulfillment(of: [expectation], timeout: 10)
+    }
+    
+    func testGivenGridViewIsFalseWhenToggleGridView_ThenTrue() {
+        XCTAssertFalse(viewModel.isGridView)
+        viewModel.toggleGridView()
+        XCTAssertTrue(viewModel.isGridView)
+    }
+    
+    func testGivenShowAlertIsFalseWhenToggleshowAlert_ThenTrue() {
+        XCTAssertFalse(viewModel.showAlert)
+        viewModel.toggleAlert()
+        XCTAssertTrue(viewModel.showAlert)
+    }
+}
+
 
 //    @MainActor
 //    func testGivenUsersListIsEmpty_WhenReloadUsers_ThenUsersListIsNoLongerEmpty() async throws {
@@ -50,54 +147,3 @@ final class UserListViewModelTests: XCTestCase {
 //        
 //        await fulfillment(of: [expectation], timeout: 10) 
 //    }
-}
-
-
-private extension UserListViewModelTests {
-    // Define a mock for executeDataRequest that returns predefined data
-    func mockExecuteDataRequest(_ request: URLRequest) async throws -> (Data, URLResponse) {
-        // Create mock data with a sample JSON response
-        let sampleJSON = """
-            {
-                "results": [
-                    {
-                        "name": {
-                            "title": "Mr",
-                            "first": "John",
-                            "last": "Doe"
-                        },
-                        "dob": {
-                            "date": "1990-01-01",
-                            "age": 31
-                        },
-                        "picture": {
-                            "large": "https://example.com/large.jpg",
-                            "medium": "https://example.com/medium.jpg",
-                            "thumbnail": "https://example.com/thumbnail.jpg"
-                        }
-                    },
-                    {
-                        "name": {
-                            "title": "Ms",
-                            "first": "Jane",
-                            "last": "Smith"
-                        },
-                        "dob": {
-                            "date": "1995-02-15",
-                            "age": 26
-                        },
-                        "picture": {
-                            "large": "https://example.com/large.jpg",
-                            "medium": "https://example.com/medium.jpg",
-                            "thumbnail": "https://example.com/thumbnail.jpg"
-                        }
-                    }
-                ]
-            }
-        """
-
-        let data = sampleJSON.data(using: .utf8)!
-        let response = HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)!
-        return (data, response)
-    }
-}
