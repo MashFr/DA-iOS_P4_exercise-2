@@ -12,7 +12,16 @@ struct UserListToolbarView: View {
 
     var body: some View {
         HStack {
-            Picker(selection: $viewModel.isGridView, label: Text("Display")) {
+            Picker(
+                selection: Binding(
+                    get: {
+                        viewModel.output.isGridView
+                    }, set: { _ in
+                        viewModel.input.toggleGridView()
+                    }
+                ),
+                label: Text("Display")
+            ) {
                 Image(systemName: "rectangle.grid.1x2.fill")
                     .tag(true)
                     .accessibilityLabel(Text("Grid view"))
@@ -32,7 +41,3 @@ struct UserListToolbarView: View {
         }
     }
 }
-
-// #Preview {
-//    UserListToolbarView()
-// }

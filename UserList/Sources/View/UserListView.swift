@@ -57,7 +57,13 @@ struct UserListView: View {
         }
         .alert(
             Text("Error"),
-            isPresented: $viewModel.showAlert
+            isPresented: Binding<Bool>(
+                get: {
+                    viewModel.output.showAlert
+                }, set: { _ in
+                    viewModel.input.toggleAlert()
+                }
+            )
         ) {
             Button("OK") {}
         } message: {
