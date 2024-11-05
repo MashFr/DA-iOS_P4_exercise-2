@@ -43,10 +43,8 @@ class UserListViewModel: ObservableObject, UserListViewModelInput, UserListViewM
         self.isLoading = true
 
         do {
-//            DispatchQueue.main.async {
             let users = try await repository.fetchUsers(quantity: pageSize)
             self.users.append(contentsOf: users)
-//            }
         } catch {
             self.errorMessage = "Error fetching users: \(error.localizedDescription)"
             self.showAlert = true

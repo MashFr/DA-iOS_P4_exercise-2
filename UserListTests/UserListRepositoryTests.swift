@@ -17,7 +17,6 @@ final class UserListRepositoryTests: XCTestCase {
         repository = UserListRepository(executeDataRequest: dataRequestMock.executeDataRequest)
     }
     
-    // Happy path test case
     func testFetchUsersSuccess() async throws {
         // Given
         let quantity = 2
@@ -40,7 +39,6 @@ final class UserListRepositoryTests: XCTestCase {
         XCTAssertEqual(users[1].picture.medium, user1.picture.medium)
     }
 
-    // Unhappy path test case: Invalid JSON response
     func testFetchUsersInvalidJSONResponse() async throws {
         // Given
         dataRequestMock.shouldReturnValidResponse = false

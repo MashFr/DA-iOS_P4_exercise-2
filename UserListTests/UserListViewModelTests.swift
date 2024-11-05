@@ -31,8 +31,8 @@ final class UserListViewModelTests: XCTestCase {
         let expectation = XCTestExpectation(description: "reloadUsers completes")
         
         Task {
-            await viewModel.reloadUsers() // une tâche asynchrone
-            XCTAssertFalse(viewModel.users.isEmpty) // validation une fois la tâche terminée
+            await viewModel.reloadUsers()
+            XCTAssertFalse(viewModel.users.isEmpty)
 
             let user0 = dataRequestMock.mockUser1
             XCTAssertEqual(viewModel.users[0].name.first, user0.name.first)
@@ -44,8 +44,7 @@ final class UserListViewModelTests: XCTestCase {
             XCTAssertNil(viewModel.errorMessage)
             XCTAssertFalse(viewModel.showAlert)
             
-            expectation.fulfill() // Marque l'expectation comme remplie
-        }
+            expectation.fulfill()        }
         
         await fulfillment(of: [expectation], timeout: 10)
     }
@@ -133,17 +132,3 @@ final class UserListViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.showAlert)
     }
 }
-
-
-//    @MainActor
-//    func testGivenUsersListIsEmpty_WhenReloadUsers_ThenUsersListIsNoLongerEmpty() async throws {
-//        let expectation = XCTestExpectation(description: "fetchUsers asynchronously.")
-//
-//        Task {
-//            await viewModel.reloadUsers()
-//            XCTAssertFalse(viewModel.users.isEmpty)
-//            expectation.fulfill()
-//        }
-//        
-//        await fulfillment(of: [expectation], timeout: 10) 
-//    }

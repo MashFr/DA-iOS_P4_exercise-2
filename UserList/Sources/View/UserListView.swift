@@ -69,7 +69,6 @@ struct UserListView: View {
         } message: {
             Text(viewModel.output.errorMessage ?? "Unknown error")
         }
-
     }
 
 }
