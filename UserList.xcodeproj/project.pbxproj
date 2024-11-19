@@ -13,7 +13,6 @@
 		2FF9D91D2ACB3D8800F3A6C5 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9D91C2ACB3D8800F3A6C5 /* HTTPMethod.swift */; };
 		2FFB64282AC6D255007F2F80 /* UserListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB64272AC6D255007F2F80 /* UserListApp.swift */; };
 		2FFB642C2AC6D256007F2F80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FFB642B2AC6D256007F2F80 /* Assets.xcassets */; };
-		6F366CD42CAD692E00BE5046 /* MVVMrefactoList.md in Resources */ = {isa = PBXBuildFile; fileRef = 6F366CD32CAD692E00BE5046 /* MVVMrefactoList.md */; };
 		6F72623B2CC8FD6600C73709 /* DataRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F72623A2CC8FD6600C73709 /* DataRequestMock.swift */; };
 		6F72623E2CC9001C00C73709 /* UserPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F72623D2CC9001C00C73709 /* UserPictureView.swift */; };
 		6FE40D782CC12B9900AB2E64 /* UserListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE40D762CC12B9900AB2E64 /* UserListResponse.swift */; };
@@ -48,7 +47,6 @@
 		2FFB64272AC6D255007F2F80 /* UserListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListApp.swift; sourceTree = "<group>"; };
 		2FFB642B2AC6D256007F2F80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FFB64342AC6D256007F2F80 /* UserListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F366CD32CAD692E00BE5046 /* MVVMrefactoList.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = MVVMrefactoList.md; sourceTree = "<group>"; };
 		6F72623A2CC8FD6600C73709 /* DataRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequestMock.swift; sourceTree = "<group>"; };
 		6F72623D2CC9001C00C73709 /* UserPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPictureView.swift; sourceTree = "<group>"; };
 		6FE40D742CC12B9900AB2E64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 		2FFB641B2AC6D255007F2F80 = {
 			isa = PBXGroup;
 			children = (
-				6F366CD32CAD692E00BE5046 /* MVVMrefactoList.md */,
 				2F6F65322ACD69290011B439 /* Readme.md */,
 				2FFB64262AC6D255007F2F80 /* UserList */,
 				2FFB64372AC6D256007F2F80 /* UserListTests */,
@@ -266,7 +263,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F6F65332ACD69290011B439 /* Readme.md in Resources */,
-				6F366CD42CAD692E00BE5046 /* MVVMrefactoList.md in Resources */,
 				2FFB642C2AC6D256007F2F80 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
